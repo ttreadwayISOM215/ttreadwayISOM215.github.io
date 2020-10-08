@@ -1,0 +1,55 @@
+ <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % 
+  % Author:  Tyler Treadway
+  % Date:    10/10/2020
+  % Course:  ISOM215A Fall 2020
+  % Site:    https://ttreadwayISOM215.github.io
+  % Description: Demonstrates innerhtml functionality
+  % 
+  % Page Name: innerhtml.html
+  % Page Summary & Features: 
+  %      - Dynamically changes page content 
+  %               
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>InnerHTML Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<h2 id="top">InnerHTML Example</h2>
+<p id=pid1>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis molestie velit. Sed vehicula ut risus sagittis commodo. Proin semper iaculis dolor, nec efficitur augue molestie vitae. Maecenas sit amet ultrices lectus, vitae aliquam libero. Aliquam nulla urna, dapibus sed convallis eget, ornare vitae nibh. Suspendisse elementum sollicitudin mollis. Etiam finibus luctus posuere. Donec et diam justo. Maecenas dapibus, mauris id volutpat porttitor, libero magna mattis turpis, eu sodales nisl lectus vel lorem. Fusce pellentesque lectus a velit elementum dignissim. Nulla facilisi. 
+</p>
+<p id=pid2>
+Sed rhoncus quam sit amet orci vehicula, vel elementum sem fermentum. Aliquam eget odio varius, dictum est sed, tincidunt nisl. Cras tortor mauris, pretium id mauris nec, elementum pharetra quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id cursus est. Aenean viverra, dolor eu ultrices commodo, orci tellus varius mauris, at fringilla nulla leo eget libero. Phasellus at leo id turpis vehicula pulvinar. Nulla sed ante lobortis, bibendum sapien a, sodales enim. Nulla laoreet nunc vel erat venenatis, in sodales odio vestibulum. Aenean viverra maximus mollis. Suspendisse eget molestie arcu. Nullam dignissim blandit massa, vel aliquam arcu. Sed id tortor a nulla sollicitudin tincidunt. 
+</p>
+
+
+<a onclick="changepid1();" href="#top">Change Paragraph #1</a>
+
+<script type="text/javascript">
+
+function changepid1() 
+
+{ 
+//
+// Change the text of the first paragraph...
+//
+document.getElementById("pid1").innerHTML=
+"<b>So the first time you hear the concept of Halloween when you're a kid, "+
+"your brain can't even understand it. What is this? What did you say? Someone's giving out candy? "+
+"Who's giving out candy? EVERYONE WE KNOW is giving out candy? I gotta be a part of this.  "+
+"Halloween is a holiday celebrated each year on October 31, and Halloween 2020 will occur on Saturday, October 31. The tradition originated with the ancient Celtic festival of Samhain, when people would light bonfires and wear costumes to ward off ghosts. In the eighth century, Pope Gregory III designated November 1 as a time to honor all saints. Soon, All Saints Day incorporated some of the traditions of Samhain. The evening before was known as All Hallows Eve, and later Halloween.</b>";
+// Example of changing a paragraphs color using a <span> tag
+	var oldHTML = document.getElementById('pid1').innerHTML;
+	var newHTML = "<span style='color:darkgreen'>" + oldHTML + "</span>";
+	document.getElementById('pid1').innerHTML = newHTML;                             
+}
+
+</script>
+</body>
+</html>
