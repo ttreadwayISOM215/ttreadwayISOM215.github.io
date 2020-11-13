@@ -1,58 +1,163 @@
-<!DOCTYPE html>
+ <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %
+  % Author:  Tyler Treadway
+  % Date:    11-09-2020 
+  % Course:  ISOM215 Mobile Application Development
+  % Site:    https://ttreadwayISOM215.github.io
+  % Description: PreOwnedVideoGames allows site visitors to see our
+  %              used XBOX, Wii and GameCube videogames for sale.  Site users
+  %              can email the site owner to check inventory and verify order.
+  %              Once verified product ship to buyer COD.
+  % 
+  % Page Name: index.html
+  % Page Summary & Features: 
+  %      - TBD    
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+<!doctype html>
 <html lang="en">
 <head>
-<title>Lighthouse Bistro</title>
+<title>Pre-Owned XBOX, WII and GAMECUBE For Sale</title>
+<!-- META TAGE -->
 <meta charset="utf-8">
+  <meta name="author" content="Tyler Treadway">
+  <meta name="description" content="Pre-Owned XBOX WII GAMECUBE Video Games For Sale">
+  <meta name="keywords" content="Pre, Owned, Pre-Owned, Video, Video Games, Games, Used, Xbox, Wii, GameCube">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- CSS -->
 <style>
-body { background-image: url(background.jpg);
-       font-family: Arial, Verdana, sans-serif;
+* {
+  box-sizing: border-box;
 }
 
-h1 { background-image: url(lighthouselogo.jpg);
-     background-color: #9DB3DC;
-	background-repeat: no-repeat;
-	height: 100px; font-size: 3em;
-	padding-left: 150px; padding-top: 30px;
-	border-radius: 15px;
-	margin-top: 0;
-	text-shadow: 3px 3px 3px #676767;
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-h2 { color: #000033; 
-     font-family: arial, sans-serif;
-	 text-shadow: 1px 1px 0 #ccc;
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
-footer { font-size: .80em;
-          font-style: italic;
+
+/* Black border (no margin above or below)*/
+hr {
+  margin-top: 0em;
+  margin-bottom: 0em;
+  border: 2px solid black;
+  border-radius: 5px
 }
-#container { background-color: #FFFFFF;
-			 padding: 2em;
-			 margin-left: auto;
-             margin-right: auto;
-			 background-color: #FFFFFF;
-			 padding: 2em;
-             width: 80%;
-             min-width: 800px;
-              box-shadow: 5px 5px 5px #1e1e1e;
-			 }
+
+body {
+  margin: 0;
+  bgcolor: #89c4f4;
+}
+
+/* Style the header and footer */
+.header {
+  background-color: #FFEAA7;
+  padding: 5px;
+  text-align: center;
+}
+
+.footer {
+  background-color: #89c4f4;
+  text-align: center;
+  padding: 5px;
+} 
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #89c4f4;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 7px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #FFEAA7;
+  color: black;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+
 </style>
+<!-- Google Translate Javascript Widget -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('.fadein img:gt(0)').hide();
+	setInterval(function(){$('.fadein :first-child').fadeOut().next('img').fadeIn().end().appendTo('.fadein');}, 1000);
+});
+</script>
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
 </head>
-<body>
-<div id="container">
-<header>
-<h1>Lighthouse Bistro</h1>
-</header>
-<nav><a href="index.html">Home</a> &nbsp;<a href="menu.html">Menu</a> &nbsp;<a href="directions.html">Directions</a> &nbsp;<a href="contact.html">Contact</a>
-</nav>
-<h2>Locally Roasted Free-Trade Coffee</h2>
-<p>Indulge in the aroma of freshly ground roast coffee. Specialty drinks are available hot or cold.</p>
-<h2>Specialty Pastries</h2>
-<p>Enjoy a selection of our fresh baked, organic pastries, including fresh fruit muffins, scones, croissants, and cinnamon rolls.</p>
-<h2>Lunchtime is Anytime</h2>
-<p>Savor delicious wraps and sandwiches on hearty, whole grain breads with locally grown salad, fruit, and vegetables. </p>
-<footer>
-Copyright &copy; 2020 Your Name Here
-</footer>
+<body style="background-color:#FFEAA7">
+<div style="text-align:center" id="google_translate_element"></div>	
+<!-- Custom Giphy Animated Graphic Image -->
+<div class="header">
+<div {border-color: black;}>
+<img src="https://media.giphy.com/media/J2sW31Hl5pbZzsKl1F/giphy.gif" border="3">
+</div>
+</div>
+<hr>
+<!-- Menu Navigation -->
+<div class="topnav">
+  <a href="xbox.html">XBOX</a>
+    <a href="wii.html">WII</a>
+    <a href="gamecube.html">GAMECUBE</a>
+  <a href="deals.html">DEALS</a>
+  <a href="order.html">ORDER</a>
+  <a href="whyus.html">WHY US</a>
+  <a href="contact.html">CONTACT US</a>
+</div>
+<!-- Google Translate --> 
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<hr>
+<br>
+<img src="comingsoon.jpg" alt="Coming Soon" width="200" height="200">
+<br>
+<div class="footer"> Site Created by Tyler Treadway <a href="mailto:TTreadway@suffolk.edu?Subject=ADPR297%20Site%20Feedback" target="_top">TTreadway@suffolk.edu</a> 
 </div>
 </body>
 </html>
