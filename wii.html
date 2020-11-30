@@ -1,7 +1,7 @@
-<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %
+ <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % 
   % Author:  Tyler Treadway
-  % Date:    11-09-2020 
+  % Date:    11-29-2020 
   % Course:  ISOM215 Mobile Application Development
   % Site:    https://ttreadwayISOM215.github.io
   % Description: PreOwnedVideoGames allows site visitors to see our
@@ -10,7 +10,13 @@
   %              Once verified product ship to buyer COD.
   % 
   % Page Name: wii.html
-  % Page Summary & Features: TBD
+  % Page Summary & Features: 
+  %      - Displays Pre-Owned Wii games in stock for sale 
+  %      - Has external link of top selling Wii games per DigitalTrends.com  
+  %      - Scrollable table shows games without page header and menu bar scrolling off page 
+  %      - Thumbnail of each Wii video game image with product info (price, condition, etc.)
+  %      - Displays in red if game SOLD or SALE PENDING   
+  %      - Google Translate to accomodate international site visitors
   %               
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <!DOCTYPE html>
@@ -29,11 +35,6 @@
 
 <!-- CSS -->
 <style>
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 h2 {
   text-align: center;
@@ -89,7 +90,7 @@ label{
 </style>
   <title>Place Wii Game Order</title>
   	<script src="https://smtpjs.com/v3/smtp.js">
-    </script>
+        </script>
 <script type="text/javascript">
 function ValidateEmail() 
 {
@@ -101,6 +102,7 @@ var email_to_send_to = document.getElementById("email_address").value;
     alert("You have entered an invalid email address!")
     return (false)
 }
+		
 </script>	
 	<script type="text/javascript">
 		function sendEmail() {
@@ -213,6 +215,7 @@ body {
 </style>
 </head>
 <body style="background-color:#FFEAA7">
+<div style="text-align:center" id="google_translate_element"></div>
 <hr>
 
 <div class="topnav">
@@ -225,14 +228,96 @@ body {
   <a href="whyus.html">WHY US</a>
   <a href="contact.html">CONTACT US</a>
 </div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
 <hr>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <!--
  <div class=wrap>
  -->
  <h2> Pre-Owned Wii Games For Sale.</h2>
-		
-<img src="comingsoon.jpg" alt="Coming Soon" width="200" height="200">
+ <div style="margin-left: 10px;margin-right: 5px; color:black;font-size:22px">
+We put the <strong>Wheee</strong> back in buying Wii video games.  These hard to find games are easy to find here.  Scroll through our list to see what is available.  New stock is coming all the time.  Many of our games 
+are among the <strong><a target="_blank" href="https://www.digitaltrends.com/gaming/best-wii-games/">top selling Wii games</a> </strong>of all time according to Digital Trends that you have come to love.  Each of these hard to find games have been 
+individually tested and most are in mint or excellent condition.  Already have a copy?  Pick up a second one as a backup for peace of mind or gift to a friend.  Most games ship within 5-7 days after we receive your order.
+ </div>
+ <div>
+     <table height=80% cellspacing="10" cellpadding="0">
+	  <thead>
+        <tr>
+            <th>Game #</th>
+			<th>Game Image</th>
+            <th>Game Title</th>
+            <th>Year Made</th>
+            <th>Price</th>
+            <th>Condition</th>			
+            <th style="width:200px">Comment</th>
+        </tr>
+		 </thead>
+<tbody>
+		 <tr>
+            <td>WII-1</td>
+			<td><img src="wii1.jpg" style="height:100px; width:80px"></td>
+            <td>Mario Kart</td>
+            <td>2008</td>
+			<td>$18.99</td>
+			<td>Used Just Once</td>
+			<td>Get behind the wheel.</td>
+        </tr>
+        <tr>
+            <td>WII-2</td>
+			<td><img src="wii2.jpg" style="height:100px; width:80px"></td>
+            <td>Game Party 3</td>
+            <td>2009</td>
+			<td>$14.99</td>
+			<td>Mint</td>
+			<td>Play 19 hit games.</td>
+        </tr>
+
+		    <tr>
+            <td>WII-3</td>
+			 <td><img src="wii3.jpg" style="height:100px; width:80px"></td>
+            <td>Goosebumps</td>
+            <td>2006</td>
+			<td>$44.99</td>
+			<td>Gently Used</td>
+			<td>Hard to find.  Play 30+ games and rides in Horrorland.</td>
+        </tr>
+			<tr>
+            <td>WII-4</td>
+			<td><img src="wii4.jpg" style="height:100px; width:80px"></td>
+            <td>Super Smash Bros Brawl</td>
+            <td>2009</td>
+			<td>$31.99</td>
+			<td>Mint</td>
+			<td>Square off with all your favorite Mario Bros. characters.</td>
+        </tr>
+					<tr>
+            <td>WII-5</td>
+			<td><img src="wii5.jpg" style="height:100px; width:80px"></td>
+            <td>Ratatouille</td>
+            <td>2007</td>
+			<td>$38.99</td>
+			<td>Mint</td>
+			<td>Action has a new flavor!  Play 1-4 players.</td>
+        </tr>
+		</tbody>
+    </table>
+	</div>
+	    <br />
+
+	<!-- Auto width -->
+	<!--
+<button class="btn" src="email3.png" alt="email" onclick="sendEmail()">Email Games U Want to Buy</button>
+<button class="btn" style="width:100%"><i class="fa fa-download"></i> Download Xbox Games For Sale</button>
+-->
+  
+ </div>
  </form>
 <div class="footer"> Site Created by Tyler Treadway <a href="mailto:TTreadway@suffolk.edu?Subject=ADPR297%20Site%20Feedback" target="_top">TTreadway@suffolk.edu</a> 
 </div>
