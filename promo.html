@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Promo Sale</title>
+<meta charset="utf-8">
+  <meta name="author" content="Tyler Treadway">
+  <meta name="description" content="Gaming Genres and Gaming Systems Overview">
+  <meta name="keywords" content="Gaming System Overview, Gaming Console, GameBoy, WII, XBOX, PlayStation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Black border */
+hr {
+  margin-top: 0em;
+  margin-bottom: 0em;
+  border: 2px solid black;
+  border-radius: 5px
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header and footer */
+.header {
+  background-color: #CCF7AF;
+  padding: 10px;
+  text-align: center;
+}
+
+.footer {
+  background-color: #CCF7AF;
+  text-align: center;
+  padding: 5px;
+} 
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  font-weight: bold;
+  background-color: #6eb83d;
+}	
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #cbf025;
+  color: black;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+/* indentation */
+div.a {
+  text-indent: 50px;
+}
+
+</style>
+</head>
+<body>
+
+    <form id="form1" runat="server">
+		<h1 style="margin-left: 10px;"> Scan the QR code below for discount on games purchased today</h1>
+		<br>
+	<img style="margin-left: 100px; height: 240px; width: 246px" src="qr-code.png" alt="qr-code image">
+    </form>
+</body>
+</html>

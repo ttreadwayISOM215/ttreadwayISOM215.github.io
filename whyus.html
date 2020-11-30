@@ -1,7 +1,7 @@
-<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %
+ <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % 
   % Author:  Tyler Treadway
-  % Date:    11-09-2020 
+  % Date:    11-29-2020 
   % Course:  ISOM215 Mobile Application Development
   % Site:    https://ttreadwayISOM215.github.io
   % Description: PreOwnedVideoGames allows site visitors to see our
@@ -9,17 +9,17 @@
   %              can email the site owner to check inventory and verify order.
   %              Once verified product ship to buyer COD.
   % 
-  % Page Name: order.html
-  % Page Summary & Features: TBD
+  % Page Name: whyus.html
+  % Page Summary & Features: 
+  %      - Contains research links on why site visitors should play video games 
+  %      - Has 3 Youtube video movies for actual pre-owned video games in stock
+  %      - Google Translate to accomodate international site visitors
   %               
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Add icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Deals</title>
+<title>Why You Should Choose Us</title>
 <!-- META TAGE -->
 <meta charset="utf-8">
   <meta name="author" content="Tyler Treadway">
@@ -29,120 +29,25 @@
 
 <!-- CSS -->
 <style>
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-h2 {
-  text-align: center;
-}
-table {
-  font-family: sans-serif;
-  border-collapse: collapse;
-  max-height: 400px;
-  overflow: auto;
-}
-td,
-th {
-  border: 1px solid #ddd4
-  text-align: left;
-  padding: 8px;
-  background: #fff;
-}
-
-tr:nth-child(odd) td {
-  background-color: #eee;
-}
-
-/* fixed headers */
-
-table,
-thead,
-tbody {
-  display: block;
-}
-
-thead {
-  position: sticky;
-  text-align: left;
-  top: 0;
-}
-
-tr {
-  display: flex;
-}
-
-th,
-td {
-  flex: 1;
-  min-width: 100px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-label{
- width:   100px;
- display: inline-block;
- text-align: right;
- }
-</style>
-  <title>Place an Order </title>
-  	<script src="https://smtpjs.com/v3/smtp.js">
-    </script>
-<script type="text/javascript">
-function ValidateEmail() 
-{
-var email_to_send_to = document.getElementById("email_address").value;
- if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email_to_send_to))
-  {
-    return (true)
-  }
-    alert("You have entered an invalid email address!")
-    return (false)
-}
-</script>	
-	<script type="text/javascript">
-		function sendEmail() {
-		
-		var email_to_send_to = document.getElementById("email_address").value;
-		
-		if (ValidateEmail())
-		{
-			Email.send({
-            SecureToken : "9e7d0b6e-5977-4749-8953-7e447e28abd4",
-	        To : email_to_send_to,
-            From : "ADPR297@gmail.com",
-	        Cc : "ADPR297@gmail.com",
-			Subject : "Video Game Order ABCDEFGHIJ",
-		    Body : "<H1>Order Summary</H1><br><br>Your order has been placed.."
-			})
-			.then(function(message){
-				alert("Email successfully sent.")
-			});
-		}}
-	</script>
-
-<style>
 * {
   box-sizing: border-box;
 }
 
-/* Style buttons */
-.btn {
-  background-color: DodgerBlue;
-  border: none;
-  color: white;
-  padding: 12px 30px;
-  cursor: pointer;
-  font-size: 20px;
+video{cellpadding:0 !important;} 
+
+th {
+  align: center;
+  width: 320;
+} 
+
+td 
+{
+  align: center;
+  width: 320;
+font-weight: bold;
 }
 
-/* Darker background on mouse-over */
-.btn:hover {
-  background-color: RoyalBlue;
-}
-/* Black border (no margin above or below)*/
+/* Black border */
 hr {
   margin-top: 0em;
   margin-bottom: 0em;
@@ -154,13 +59,18 @@ body {
   margin: 0;
 }
 
-/* Style the header and footer */
+/* Style the headers and footer */
 .header {
   background-color: #FFEAA7;
   padding: 10px;
   text-align: center;
 }
 
+/* Style the header and footer */
+.header1 {
+  padding: 10px;
+  text-align: center;
+}
 .footer {
   background-color: #89c4f4;
   text-align: center;
@@ -210,11 +120,27 @@ body {
     width: 100%;
   }
 }
+/* indentation */
+div.a {
+  text-indent: 50px;
+}
+ 
+IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+
 </style>
 </head>
 <body style="background-color:#FFEAA7">
-<hr>
+<div style="text-align:center" id="google_translate_element"></div>
 
+<div style="text-align: center;color:maroon;font-size:30px; margin-left: 10px;margin-right: 5px;"><strong>
+Why Us?   &nbsp;&nbsp;We have the games you want!
+</strong>
+</div>
+<br>
+<hr>
 <div class="topnav">
   <a href="index.html">HOME</a>
   <a href="xbox.html">XBOX</a>
@@ -225,18 +151,50 @@ body {
   <a href="whyus.html">WHY US</a>
   <a href="contact.html">CONTACT US</a>
 </div>
-
-
+<table>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
 <hr>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <!--
- <div class=wrap>
- -->
- <h2> Why us...</h2>
-		
-<img src="comingsoon.jpg" alt="Coming Soon" width="200" height="200">
- </form>
-<div class="footer"> Site Created by Tyler Treadway <a href="mailto:TTreadway@suffolk.edu?Subject=ADPR297%20Site%20Feedback" target="_top">TTreadway@suffolk.edu</a> 
+List sample video games for sale
+-->
+<br>
+<div style="margin-left: 10px;margin-right: 5px; color:black ;font-size:22px">
+Did you know video games can actually be <strong>good</strong> for you! Studies show <a target="_blank" href="https://www.gamedesigning.org/why-video-games-are-good/">
+playing video games slows the aging process.</a>
+Buy our games and stay young!  Studies also show that gaming 
+   <a target="_blank" href="https://kidshealth.org/en/parents/good-gaming.html"> improves hand eye coordination.</a>   
+Make long digital downloads a thing of the past and order your favorite game from us today.
+<br><br>
+Check out these high quality videos taken from actual games we have in stock.  Our games are pre-tested and ready to ship.
+</div>
+<br>
+	<tr>
+	<td align="center" width="320" >XBOX - Grand Theft Auto 5 </td>
+	<td align="center" width="320" >WII - Mario Super Smash Bros. Brawl.</td>
+	<td align="center" width="320" >GAMECUBE - Little Nemo</td>
+	</tr>
+<tr>
+<td>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/cVD2TuBpGbA">
+</iframe>
+</td>
+<td>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/wRjnz4ANxrE">
+</iframe>
+</td>
+<td>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/7s2-YgGDBCs">
+</iframe>
+</td>
+</tr>
+	</table>
+<div class="footer"> Site Created by Tyler Treadway <a href="mailto:TTreadway@suffolk.edu?Subject=ADPR297%20Site%20Feedback" target="_top">TTreadway@suffolk.edu</a>
 </div>
 </body>
 </html>

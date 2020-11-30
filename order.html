@@ -1,7 +1,7 @@
-<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %
+ <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % 
   % Author:  Tyler Treadway
-  % Date:    11-09-2020 
+  % Date:    11-29-2020 
   % Course:  ISOM215 Mobile Application Development
   % Site:    https://ttreadwayISOM215.github.io
   % Description: PreOwnedVideoGames allows site visitors to see our
@@ -10,7 +10,11 @@
   %              Once verified product ship to buyer COD.
   % 
   % Page Name: order.html
-  % Page Summary & Features: TBD
+  % Page Summary & Features: 
+  %      - Allow site visitors and buyers to email me with their order inquiry  
+  %      - Page has Javascript email address validation and required field checker
+  %      - If end-user enters promo code (10now) from QR code (deals.html) they get 10% discount
+  %      - Google Translate to accomodate international site visitors
   %               
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <!DOCTYPE html>
@@ -19,7 +23,7 @@
 
 <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Deals</title>
+<title>Place Your Order</title>
 <!-- META TAGE -->
 <meta charset="utf-8">
   <meta name="author" content="Tyler Treadway">
@@ -29,24 +33,24 @@
 
 <!-- CSS -->
 <style>
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+label{
+ margin-left: 10px;
+ font-size:22px;
 }
-
 h2 {
   text-align: center;
+  
 }
 table {
   font-family: sans-serif;
   border-collapse: collapse;
-  max-height: 400px;
+  max-height: 300px;
   overflow: auto;
 }
+
 td,
 th {
-  border: 1px solid #ddd4
+  border: 1px solid #ddd;
   text-align: left;
   padding: 8px;
   background: #fff;
@@ -66,7 +70,6 @@ tbody {
 
 thead {
   position: sticky;
-  text-align: left;
   top: 0;
 }
 
@@ -87,10 +90,26 @@ label{
  text-align: right;
  }
 </style>
-  <title>Place an Order </title>
-  	<script src="https://smtpjs.com/v3/smtp.js">
-    </script>
+  <title>Place Game Order</title>
+  
+<!-- SMTP Javascript...Easy way to send email from HTML -->
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+
+<!-- Check for a valid Promo Code --> 
 <script type="text/javascript">
+function CheckPromoCode()
+{
+var promo_code = document.getElementById("promo").value;
+promo_code = promo_code.trim();
+if (promo_code.toUpperCase() == "10NOW")
+{
+return (true)
+}
+return (false)
+}
+
+<!-- Validate email address -->
 function ValidateEmail() 
 {
 var email_to_send_to = document.getElementById("email_address").value;
@@ -98,24 +117,71 @@ var email_to_send_to = document.getElementById("email_address").value;
   {
     return (true)
   }
-    alert("You have entered an invalid email address!")
+    alert("Invalid email address.")
     return (false)
-}
+}	
 </script>	
+
+<!-- Check required fields not blank -->
+<script type="text/javascript">
+function checkrequiredfields()
+{
+var f1 = document.getElementById("buyer_name").value;
+var f2 = document.getElementById("address1").value;
+var f3 = document.getElementById("city").value;
+var f4 = document.getElementById("state").value;
+var f5 = document.getElementById("zipcode").value;
+
+if ((f1 == "")||(f2 == "")||(f3 == "")||(f4 == "")||(f5 == ""))
+{
+alert("Please enter name and address fields.");
+return false;
+}
+else 
+{
+return true; 
+}
+}
+</script>
+
+<!-- Send eMail -->
 	<script type="text/javascript">
 		function sendEmail() {
 		
 		var email_to_send_to = document.getElementById("email_address").value;
-		
-		if (ValidateEmail())
+		var RealPromoCode = document.getElementById("promo").value;
+	    if (CheckPromoCode())
+		{
+		RealPromoCode = "10now **Congratulations **  You will save 10% off your order.";
+		}
+		else
+		{
+		RealPromoCode = "None Entered";
+		}
+	
+		if (ValidateEmail() && checkrequiredfields())
 		{
 			Email.send({
             SecureToken : "9e7d0b6e-5977-4749-8953-7e447e28abd4",
 	        To : email_to_send_to,
             From : "ADPR297@gmail.com",
-	        Cc : "ADPR297@gmail.com",
-			Subject : "Video Game Order ABCDEFGHIJ",
-		    Body : "<H1>Order Summary</H1><br><br>Your order has been placed.."
+			Subject : "Video Game Order Summary",
+		    Body : "<h2 style=color:#FF0000>Order Summary</h2><div style=color:#000000><strong>Your order has been placed.</strong><br><hr>"+
+			"Name: "+ document.getElementById("buyer_name").value+"<br>"+
+			"Address1: "+ document.getElementById("address1").value+"<br>"+
+			"Address2: "+ document.getElementById("address2").value+"<br>"+
+			"City: "+ document.getElementById("city").value+"<br>"+
+			"State: "+ document.getElementById("state").value+"<br>"+
+			"Zip Code: "+ document.getElementById("zipcode").value+	"<br>"+	
+			"Country: "+ document.getElementById("country").value+	"<br>"+				
+			
+			"Shipping Method: "+ document.getElementById("shipping_method").value+
+			"<br>"+
+			"Promotion Code: "+RealPromoCode+
+			"<br>Order Notes: "+document.getElementById("mytextarea").value+"<hr><br><strong>Thank you for your order. </strong>"+
+			"<br>We will follow up with a confirmation email and ship if product in stock.<br>"+
+			"Orders do not include shipping and are COD (Cash on Delivery).<br>"+
+			"All sales are final unless product defective.</div>"
 			})
 			.then(function(message){
 				alert("Email successfully sent.")
@@ -213,29 +279,83 @@ body {
 </style>
 </head>
 <body style="background-color:#FFEAA7">
+<div style="text-align:center" id="google_translate_element"></div>
+<br>
+<!--Currency Converter widget by FreeCurrencyRates.com -->
 
+<div id='gcw_mainFEXgBHdGs' class='gcw_mainFEXgBHdGs'></div>
+<a id='gcw_siteFEXgBHdGs' href='https://freecurrencyrates.com/en/'>FreeCurrencyRates.com</a>
+<script>function reloadFEXgBHdGs(){ var sc = document.getElementById('scFEXgBHdGs');if (sc) sc.parentNode.removeChild(sc);sc = document.createElement('script');sc.type = 'text/javascript';sc.charset = 'UTF-8';sc.async = true;sc.id='scFEXgBHdGs';sc.src = 'https://freecurrencyrates.com/en/widget-horizontal-editable?iso=XUM-GBP&df=2&p=FEXgBHdGs&v=ft&source=fcr&width=900&width_title=300&firstrowvalue=1&thm=A6C9E2,FCFDFD,4297D7,5C9CCC,FFFFFF,C5DBEC,FCFDFD,2E6E9E,000000&title=Currency%20Converter&tzo=240';var div = document.getElementById('gcw_mainFEXgBHdGs');div.parentNode.insertBefore(sc, div);} reloadFEXgBHdGs(); </script>
+<!-- put custom styles here: .gcw_mainFEXgBHdGs{}, .gcw_headerFEXgBHdGs{}, .gcw_ratesFEXgBHdGs{}, .gcw_sourceFEXgBHdGs{} -->
+<!--End of Currency Converter widget by FreeCurrencyRates.com -->
 <hr>
-
 <div class="topnav">
   <a href="index.html">HOME</a>
   <a href="xbox.html">XBOX</a>
-    <a href="wii.html">WII</a>
     <a href="gamecube.html">GAMECUBE</a>
+    <a href="wii.html">WII</a>
   <a href="deals.html">DEALS</a>
   <a href="order.html">ORDER</a>
   <a href="whyus.html">WHY US</a>
   <a href="contact.html">CONTACT US</a>
 </div>
-
-
 <hr>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<!--
- <div class=wrap>
- -->
- <h2> Place your order now...</h2>
-		
-<img src="comingsoon.jpg" alt="Coming Soon" width="200" height="200">
+<div class="row">
+    <h2>Place Your Order Here:</h2>
+  <form method="post">
+  <label>Name: </label>
+  <input id="buyer_name" type="text" size="45" required><br>
+  
+  <label>Email:</label>
+  <input id="email_address" type="email" required size="45"><br>
+  
+  <label>Address 1: </label>
+  <input id="address1" type="text" size="45" required><br> 
+   
+  <label>Address 2: </label>
+  <input id="address2" type="text" size="45"><br> 
+
+  <label>City: </label>
+  <input id="city" type="text" size="45" required><br>   
+  
+  <label>State: </label>
+  <input id="state" type="text" size="45" required><br>   
+  
+  <label>Zip Code: </label>
+  <input id="zipcode" type="text" size="45" required><br>   
+
+  <label>Country: </label>
+  <input id="country" type="text" size="45" value="United States" required><br>   
+  
+   <br>   <label>Order Notes: </label>
+  <textarea id="mytextarea"  name="notes" rows = "3" cols ="80" maxlength="250" required>
+Enter the games you want to order here.
+</textarea>
+<br>  
+  <label>Shipping Method:</label>
+  <select id="shipping_method" width="20">
+  <option value="Standard Shipping">Standard Shipping</option>
+  <option value="Overnight Shipping">Overnight Shipping</option>
+  </select>
+  <br>
+    <label>Promo code: </label>
+    <input id="promo" type="text" maxlength="19" size="19">
+  </p>
+  <p><input style="margin-left: 114px" type="button" src="email3.png" value="Send Email" onclick="sendEmail('ttreadway@suffolk.edu')"/></p>
+	    <br />
+	<!-- Auto width -->
+	<!--
+<button class="btn" src="email3.png" alt="email" onclick="sendEmail()">Email Games U Want to Buy</button>
+<button class="btn" style="width:100%"><i class="fa fa-download"></i> Download Xbox Games For Sale</button>
+-->  
+ </div>
  </form>
 <div class="footer"> Site Created by Tyler Treadway <a href="mailto:TTreadway@suffolk.edu?Subject=ADPR297%20Site%20Feedback" target="_top">TTreadway@suffolk.edu</a> 
 </div>

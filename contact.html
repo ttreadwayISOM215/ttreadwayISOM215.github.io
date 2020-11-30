@@ -1,7 +1,7 @@
-<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %
+ <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % 
   % Author:  Tyler Treadway
-  % Date:    11-09-2020 
+  % Date:    11-29-2020 
   % Course:  ISOM215 Mobile Application Development
   % Site:    https://ttreadwayISOM215.github.io
   % Description: PreOwnedVideoGames allows site visitors to see our
@@ -9,8 +9,11 @@
   %              can email the site owner to check inventory and verify order.
   %              Once verified product ship to buyer COD.
   % 
-  % Page Name: order.html
-  % Page Summary & Features: TBD
+  % Page Name: contact.html
+  % Page Summary & Features: 
+  %      - Allow site visitors and buyers to email me with questions and comments  
+  %      - Page has Javascript email address validation and required field checker
+  %      - Google Translate to accomodate international site visitors
   %               
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <!DOCTYPE html>
@@ -19,7 +22,7 @@
 
 <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Deals</title>
+<title>Contact Us</title>
 <!-- META TAGE -->
 <meta charset="utf-8">
   <meta name="author" content="Tyler Treadway">
@@ -29,24 +32,24 @@
 
 <!-- CSS -->
 <style>
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+label{
+ margin-left: 10px;
+ font-size:22px;
 }
-
 h2 {
   text-align: center;
+  
 }
 table {
   font-family: sans-serif;
   border-collapse: collapse;
-  max-height: 400px;
+  max-height: 300px;
   overflow: auto;
 }
+
 td,
 th {
-  border: 1px solid #ddd4
+  border: 1px solid #ddd;
   text-align: left;
   padding: 8px;
   background: #fff;
@@ -66,7 +69,6 @@ tbody {
 
 thead {
   position: sticky;
-  text-align: left;
   top: 0;
 }
 
@@ -87,10 +89,21 @@ label{
  text-align: right;
  }
 </style>
-  <title>Place an Order </title>
+  <title>Place Game Order</title>
   	<script src="https://smtpjs.com/v3/smtp.js">
-    </script>
+        </script>
 <script type="text/javascript">
+function CheckPromoCode()
+{
+var promo_code = document.getElementById("promo").value;
+promo_code = promo_code.trim();
+if (promo_code.toUpperCase() == "10NOW")
+{
+return (true)
+}
+return (false)
+}
+
 function ValidateEmail() 
 {
 var email_to_send_to = document.getElementById("email_address").value;
@@ -106,16 +119,20 @@ var email_to_send_to = document.getElementById("email_address").value;
 		function sendEmail() {
 		
 		var email_to_send_to = document.getElementById("email_address").value;
-		
+	
 		if (ValidateEmail())
 		{
 			Email.send({
             SecureToken : "9e7d0b6e-5977-4749-8953-7e447e28abd4",
-	        To : email_to_send_to,
+	        To : "ADPR297@gmail.com",
             From : "ADPR297@gmail.com",
-	        Cc : "ADPR297@gmail.com",
-			Subject : "Video Game Order ABCDEFGHIJ",
-		    Body : "<H1>Order Summary</H1><br><br>Your order has been placed.."
+	        Cc : email_to_send_to,
+			Subject : "Contact Information Received",
+		    Body : "<h2 style=color:#228B22>We got your feedback!</h2><hr>"+
+			"Name: "+
+			document.getElementById("buyer_name").value+
+			"<br>Contact Notes: "+document.getElementById("mytextarea").value+"<br>"+
+			"<hr>"
 			})
 			.then(function(message){
 				alert("Email successfully sent.")
@@ -213,29 +230,50 @@ body {
 </style>
 </head>
 <body style="background-color:#FFEAA7">
-
+<div style="text-align:center" id="google_translate_element"></div>
+<br>
 <hr>
-
 <div class="topnav">
   <a href="index.html">HOME</a>
   <a href="xbox.html">XBOX</a>
-    <a href="wii.html">WII</a>
     <a href="gamecube.html">GAMECUBE</a>
+    <a href="wii.html">WII</a>
   <a href="deals.html">DEALS</a>
   <a href="order.html">ORDER</a>
   <a href="whyus.html">WHY US</a>
   <a href="contact.html">CONTACT US</a>
 </div>
-
-
 <hr>
-
-<!--
- <div class=wrap>
- -->
- <h2> Contact us...</h2>
-		
-<img src="comingsoon.jpg" alt="Coming Soon" width="200" height="200">
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<br>
+ <div style="margin-left: 10px;margin-right: 5px; color:black;font-size:22px">
+ Use this form to contact us.  Tell us you love your shipped game.  Tell us you found the same game at a lower price...we may match it.  Tell us you found the same game at a higher price...we'll say we told you so.  Most of all, use this form to reach out for rapid feedback on the status of your order, your order hasn't arrived yet or whatever question you may have. 
+ </div>
+<div class="row">
+    <h2>Contact Us</h2>
+  <form method="post">
+  <label>Name: </label>
+  <input id="buyer_name" type="text" size="45"><br>
+   <br> <label>Email Address: </label>
+  <input id="email_address" type="email" required size="45"><br>
+    <br>  <label>Contact Notes: </label>
+  <textarea id="mytextarea"  name="notes" rows = "3" cols ="100" maxlength="300">
+How can we help?
+</textarea>
+<br>  
+  <p><input style="margin-left: 114px" type="button" src="email3.png" value="Send Email" onclick="sendEmail('ttreadway@suffolk.edu')"/></p>
+	    <br />
+	<!-- Auto width -->
+	<!--
+<button class="btn" src="email3.png" alt="email" onclick="sendEmail()">Email Games U Want to Buy</button>
+<button class="btn" style="width:100%"><i class="fa fa-download"></i> Download Xbox Games For Sale</button>
+-->  
+ </div>
  </form>
 <div class="footer"> Site Created by Tyler Treadway <a href="mailto:TTreadway@suffolk.edu?Subject=ADPR297%20Site%20Feedback" target="_top">TTreadway@suffolk.edu</a> 
 </div>

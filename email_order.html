@@ -1,0 +1,76 @@
+ <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % 
+  % Author:  Tyler Treadway
+  % Date:    11-29-2020 
+  % Course:  ISOM215 Mobile Application Development
+  % Site:    https://ttreadwayISOM215.github.io
+  % Description: PreOwnedVideoGames allows site visitors to see our
+  %              used XBOX, Wii and GameCube videogames for sale.  Site users
+  %              can email the site owner to check inventory and verify order.
+  %              Once verified product ship to buyer COD.
+  % 
+  % Page Name: email_order.html
+  % Page Summary & Features: 
+  %      - Sends an email to the user with the games they are interested in buying
+  %      - Google Translate to accomidate international site visitors
+  %               
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- define style tags -->
+<style>
+label{
+ width:   240px;
+ display: inline-block;
+ text-align: left;
+ }
+</style>
+  <title>Place Game Order</title>
+  	<script src="https://smtpjs.com/v3/smtp.js">
+        </script>  
+
+	<script type="text/javascript">
+		function sendEmail() {
+			Email.send({
+
+    SecureToken : "9e7d0b6e-5977-4749-8953-7e447e28abd4",
+    To : "ttreadway2017@gmail.com,ttreadway@suffolk.edu",
+    From : "DoNotReply@gmail.com",
+
+				Subject : "Sale Sale Sale!!!",
+				Body : "Hello again valued customer."
+
+
+			})
+			.then(function(message){
+				alert("mail sent successfully")
+			});
+		}
+	</script>
+</head>
+
+<body>
+
+  <h1>Place Game Order</h1>
+
+  <form method="post">
+  <p><strong>Enter Order Information:</strong><br />
+  <label>Name: </label>
+  <input name="yourname" type="text" size="40"></p>
+    <label>Email Address: </label>
+  <input name="email_address" type="text" size="40"></p>
+
+  
+  <p><strong>Shipping Method</strong><br />
+  <select name="shipping_method">
+  <option value="standard">Standard Shipping</option>
+  <option value="overnight">Overnight Shipping</option>
+  </select>
+  </p>
+  <p><input type="button" value="Send Email" onclick="sendEmail()"/></p>
+  </form>
+
+</body>
+</html>
+

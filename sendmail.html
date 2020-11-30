@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Send Email</title>
+	<script src="https://smtpjs.com/v3/smtp.js">
+        </script>  
+
+	<script type="text/javascript">
+		function sendEmail() {
+			Email.send({
+				Host: "smtp.gmail.com",
+				Port: "587",
+				Username : "TBD",
+				Password : "TBD",
+				To : 'ttreadway@suffolk.edu',
+				From : "DoNotReply@gmail.com",
+				Subject : "Sale Sale Sale!!!",
+				Body : "<h1>Hello World</h1>"
+			})
+			.then(function(message){
+				alert("mail sent successfully")
+			});
+		}
+	</script>
+</head>
+<body>  
+	<form method="post">
+		<input type="button" value="Send Email" onclick="sendEmail()"/>
+	</form>  
+</body>
+</html>

@@ -1,7 +1,7 @@
  <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %
   % Author:  Tyler Treadway
-  % Date:    11-09-2020 
+  % Date:    11-29-2020 
   % Course:  ISOM215 Mobile Application Development
   % Site:    https://ttreadwayISOM215.github.io
   % Description: PreOwnedVideoGames allows site visitors to see our
@@ -11,7 +11,11 @@
   % 
   % Page Name: index.html
   % Page Summary & Features: 
-  %      - TBD    
+  %      - Site home page  
+  %      - Slide Show that displays sample product inventory every second.
+  %      - Animated GIF file showing site home page with marketing message
+  %      - Google Translate to accomidate international site visitors
+  %               
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <!doctype html>
 <html lang="en">
@@ -28,12 +32,6 @@
 <style>
 * {
   box-sizing: border-box;
-}
-
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .center {
@@ -113,11 +111,26 @@ body {
 }
 
 </style>
+<!-- Google Translate Javascript Widget -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('.fadein img:gt(0)').hide();
+	setInterval(function(){$('.fadein :first-child').fadeOut().next('img').fadeIn().end().appendTo('.fadein');}, 1000);
+});
+</script>
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
 </head>
 <body style="background-color:#FFEAA7">
+<div style="text-align:center" id="google_translate_element"></div>	
 <!-- Custom Giphy Animated Graphic Image -->
 <div class="header">
-
+<div {border-color: black;}>
+<img src="https://media.giphy.com/media/J2sW31Hl5pbZzsKl1F/giphy.gif" border="3">
+</div>
 </div>
 <hr>
 <!-- Menu Navigation -->
@@ -130,10 +143,60 @@ body {
   <a href="whyus.html">WHY US</a>
   <a href="contact.html">CONTACT US</a>
 </div>
+<!-- Google Translate --> 
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
 
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <hr>
 <br>
-<img src="comingsoon.jpg" alt="Coming Soon" width="200" height="200">
+<!-- W3 Schools Slideshow --> 
+<div class="center" style="max-width:350px">
+  <img class="mySlides" src="xbox1.jpg" style="height:500px; width:350px">
+  <img class="mySlides" src="wii1.jpg" style="height:500px; width:350px">
+  <img class="mySlides" src="xbox2.jpg" style="height:500px; width:350px">
+  <img class="mySlides" src="xbox8.jpg" style="height:500px; width:350px">
+  <img class="mySlides" src="wii2.jpg" style="height:500px; width:350px">
+  <img class="mySlides" src="xbox4.jpg" style="height:500px; width:350px">
+  <img class="mySlides" src="wii3.jpg" style="height:500px; width:350px">
+  <img class="mySlides" src="gamecube1.jpg" style="height:500px; width:350px">
+  <img class="mySlides" src="gamecube2.jpg" style="height:500px; width:350px">
+  <img class="mySlides" src="xbox5.jpg" style="height:500px; width:350px">
+  <img class="mySlides" src="xbox6.jpg" style="height:500px; width:350px">
+  <img class="mySlides" src="wii4.jpg" style="height:500px; width:350px">
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script> <br>
+<div style="text-align: center;color:maroon;font-size:18px"><strong>TERMS &amp; CONDITIONS</strong></div>
+<div style="margin-left: 10px;margin-right: 5px;">
+Game prices may change and are valid for today only. Prices do not include state taxes or shipping charges (COD).
+Our games have been tested and are in full working condition. 
+Not responsible for non-working consoles that cannot play our games.  
+All sales are subject to site manager approval. By ordering, you release PreOwnedVideoGames from any claim relating to 
+the product (including but not limited to loss of a device or its contents) or any music, pictures or other data stored on it. 
+You also release PreOwnedVideoGames & it's principals from any claim 
+for loss or unauthorized access, use or disclosure of any personal or private data or information stored on the device. 
+All trades are final barring damaged/non-operative games.  Please, no dealers.  Cannot be combined with any other offer. Offers valid only towards items normally accepted in trade. Offer valid in the United States, Puerto Rico and Guam only. Void where prohibited. PreOwnedVideoGames reserves the right to cancel, 
+terminate, modify or suspend the offer for any reason without notice. 
+
 <br>
 <div class="footer"> Site Created by Tyler Treadway <a href="mailto:TTreadway@suffolk.edu?Subject=ADPR297%20Site%20Feedback" target="_top">TTreadway@suffolk.edu</a> 
 </div>

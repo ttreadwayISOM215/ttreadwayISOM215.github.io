@@ -1,7 +1,7 @@
-<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %
+ <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % 
   % Author:  Tyler Treadway
-  % Date:    11-09-2020 
+  % Date:    11-29-2020 
   % Course:  ISOM215 Mobile Application Development
   % Site:    https://ttreadwayISOM215.github.io
   % Description: PreOwnedVideoGames allows site visitors to see our
@@ -9,8 +9,14 @@
   %              can email the site owner to check inventory and verify order.
   %              Once verified product ship to buyer COD.
   % 
-  % Page Name: GameCube.html
-  % Page Summary & Features: TBD
+  % Page Name: gamecube.html
+  % Page Summary & Features: 
+  %      - Displays Pre-Owned GameCube games in stock for sale  
+  %      - Has external link of top selling GameCube games per WikiPedia 
+  %      - Scrollable table shows games without page header and menu bar scrolling off page 
+  %      - Thumbnail of each GameCube video game image with product info (price, condition, etc.)
+  %      - Displays in red if game SOLD or SALE PENDING   
+  %      - Google Translate to accomodate international site visitors
   %               
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <!DOCTYPE html>
@@ -29,11 +35,6 @@
 
 <!-- CSS -->
 <style>
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 h2 {
   text-align: center;
@@ -89,7 +90,7 @@ label{
 </style>
   <title>Place GameCube Game Order</title>
   	<script src="https://smtpjs.com/v3/smtp.js">
-    </script>
+        </script>
 <script type="text/javascript">
 function ValidateEmail() 
 {
@@ -101,6 +102,7 @@ var email_to_send_to = document.getElementById("email_address").value;
     alert("You have entered an invalid email address!")
     return (false)
 }
+		
 </script>	
 	<script type="text/javascript">
 		function sendEmail() {
@@ -213,6 +215,7 @@ body {
 </style>
 </head>
 <body style="background-color:#FFEAA7">
+<div style="text-align:center" id="google_translate_element"></div>
 <hr>
 
 <div class="topnav">
@@ -226,13 +229,97 @@ body {
   <a href="contact.html">CONTACT US</a>
 </div>
 
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
 <hr>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 <!--
  <div class=wrap>
  -->
- <h2> Pre-Owned Game Cube Games For Sale.</h2>
-		
-<img src="comingsoon.jpg" alt="Coming Soon" width="200" height="200">
+ <h2> Pre-Owned GameCube Games For Sale.</h2>
+ <div style="margin-left: 10px;margin-right: 5px; color:black;font-size:22px">
+You want GameCube games?  We have the <strong><a target="_blank" href="https://en.wikipedia.org/wiki/List_of_best-selling_GameCube_video_games">top selling GameCube games</a> 
+</strong>
+of all time you have come to love.  Each of these hard to find games have been 
+individually tested and most are in mint or excellent condition.  Already have a copy?  Pick up a second one as a backup for peace of mind or gift to a friend.  Most games ship within 5-7 days after we receive your order.
+ </div>
+ <div>
+     <table height=80% cellspacing="10" cellpadding="0">
+	  <thead>
+        <tr>
+            <th>Game #</th>
+			<th>Game Image</th>
+            <th>Game Title</th>
+            <th>Year Made</th>
+            <th>Price</th>
+            <th>Condition</th>			
+            <th style="width:200px">Comment</th>
+        </tr>
+		 </thead>
+		  <tbody>
+        <tr>
+            <td>GAMECUBE-1</td>
+			<td><img src="gamecube1.jpg" style="height:100px; width:80px"></td>
+            <td>Animal Crossing</td>
+            <td>2006</td>
+			<td>$8.99</td>
+			<td>Used once</td>
+			<td>Real time fun for all.</td>
+        </tr>
+        <tr>
+            <td>GAMECUBE-2</td>
+			<td><img src="gamecube2.jpg" style="height:100px; width:80px"></td>
+            <td>Sonic Heroes</td>
+            <td>2007</td>
+			<td>$7.99</td>
+			<td>Mint</td>
+			<td>Play Sonic Hedgehog and his pals.</td>
+        </tr>
+        <tr>
+            <td>GAMECUBE-3</td>
+			 <td><img src="gamecube3.jpg" style="height:100px; width:80px"></td>
+            <td>Finding Nemo</td>
+            <td>2006</td>
+			<td>$8.99</td>
+			<td>Very Good</td>
+			<td>Fish are friends...not food.</td>
+        </tr>		
+			<tr>
+            <td>GAMECUBE-4</td>
+			<td><img src="gamecube4.jpg" style="height:100px; width:80px"></td>
+            <td>Star Wars</td>
+            <td>2008</td>
+			<td>$25.99</td>
+			<td>Mint</td>
+			<td>Original Star Wars Game.</td>
+        </tr>
+		        </tr>		
+			<tr>
+            <td>GAMECUBE-5</td>
+			<td><img src="gamecube5.jpg" style="height:100px; width:80px"></td>
+            <td>Star Wars II</td>
+            <td>2010</td>
+			<td>$23.99</td>
+			<td>Mint</td>
+			<td>Second Game in Star Wars Series.</td>
+        </tr>
+		</tbody>
+ 
+    </table>
+	</div>
+	    <br />
+
+	<!-- Auto width -->
+	<!--
+<button class="btn" src="email3.png" alt="email" onclick="sendEmail()">Email Games U Want to Buy</button>
+<button class="btn" style="width:100%"><i class="fa fa-download"></i> Download Xbox Games For Sale</button>
+-->
+  
+ </div>
  </form>
 <div class="footer"> Site Created by Tyler Treadway <a href="mailto:TTreadway@suffolk.edu?Subject=ADPR297%20Site%20Feedback" target="_top">TTreadway@suffolk.edu</a> 
 </div>

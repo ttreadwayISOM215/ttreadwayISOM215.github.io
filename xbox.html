@@ -1,7 +1,7 @@
-<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %
+ <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % 
   % Author:  Tyler Treadway
-  % Date:    11-09-2020 
+  % Date:    11-29-2020 
   % Course:  ISOM215 Mobile Application Development
   % Site:    https://ttreadwayISOM215.github.io
   % Description: PreOwnedVideoGames allows site visitors to see our
@@ -10,7 +10,13 @@
   %              Once verified product ship to buyer COD.
   % 
   % Page Name: xbox.html
-  % Page Summary & Features: TBD
+  % Page Summary & Features: 
+  %      - Displays Pre-Owned XBOX games in stock for sale  
+  %      - Has external link of top selling XBOX games per GamesRader.com 
+  %      - Scrollable table shows games without page header and menu bar scrolling off page 
+  %      - Thumbnail of each XBOX video game image with product info (price, condition, etc.)
+  %      - Displays in red if game SOLD or SALE PENDING   
+  %      - Google Translate to accomodate international site visitors
   %               
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <!DOCTYPE html>
@@ -29,11 +35,6 @@
 
 <!-- CSS -->
 <style>
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 h2 {
   text-align: center;
@@ -213,6 +214,7 @@ body {
 </style>
 </head>
 <body style="background-color:#FFEAA7">
+<div style="text-align:center" id="google_translate_element"></div>
 <hr>
 
 <div class="topnav">
@@ -226,13 +228,124 @@ body {
   <a href="contact.html">CONTACT US</a>
 </div>
 
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
 <hr>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 <!--
  <div class=wrap>
  -->
  <h2> Pre-Owned XBOX Games For Sale.</h2>
-		
-<img src="comingsoon.jpg" alt="Coming Soon" width="200" height="200">
+ <div style="margin-left: 10px;margin-right: 5px; color:black;font-size:22px">
+Love XBOX?  You are in luck!   We have the <strong><a target="_blank" href="https://www.gamesradar.com/best-xbox-games-all-time/">top selling Xbox games</a> </strong>
+of all time you have come to love.  Each of these hard to find games have been 
+individually tested and most are in mint or excellent condition.  Already have a copy?  Pick up a second one as a backup for peace of mind or gift to a friend.  Most games ship within 5-7 days after we receive your order.
+ </div>
+ <div>
+     <table height=80% cellspacing="10" cellpadding="0">
+	  <thead>
+        <tr>
+            <th>Game #</th>
+			<th>Game Image</th>
+            <th>Game Title</th>
+            <th>Year Made</th>
+            <th>Price</th>
+            <th>Condition</th>			
+            <th style="width:200px">Comment</th>
+        </tr>
+		 </thead>
+		  <tbody>
+        <tr>
+            <td>XBOX-1</td>
+			<td><img src="xbox1.jpg" style="height:100px; width:80px"></td>
+            <td>Star Wars</td>
+            <td>2005</td>
+			<td>$10.99</td>
+			<td>Mint</td>
+			<td>All the characters.  All the action.  All the fun.</td>
+        </tr>
+        <tr>
+            <td>XBOX-2</td>
+			<td><img src="xbox2.jpg" style="height:100px; width:80px"></td>			
+			<td>Halo 3</td>
+            <td>2010</td>
+			<td>$13.99</td>
+			<td>Mint</td>
+			<td>The stunning conclusion to the Halo trilogy.</td>
+			</tr>
+		<tr>
+            <td>XBOX-3</td>
+			<td><img src="xbox3.jpg" style="height:100px; width:80px"></td>
+            <td><del>Halo 4</del><STRONG><div style="color:red"> SOLD</div></STRONG></td>
+            <td>2011</td>
+			<td>$11.99</td>
+			<td>Mint</td>
+			<td>The reclaimer Saga begins!                  </td>
+        </tr>
+        <tr>
+            <td>XBOX-4</td>
+			 <td><img src="xbox4.jpg" style="height:100px; width:80px"></td>
+            <td>L.A. Noire</td>
+            <td>2011</td>
+			<td>$11.99</td>
+			<td>Mint</td>
+			<td>Set in 1940's Los Angeles.  Rockstar's best crime thriller.</td>
+        </tr>
+
+		</tr>
+			<tr>
+            <td>XBOX-5</td>
+			<td><img src="xbox5.jpg" style="height:100px; width:80px"></td>
+            <td>Grand Theft Auto 5</td>
+            <td>2011</td>
+			<td>$20.99</td>
+			<td>Mint</td>
+			<td>All time #1 selling XBOX game..</td>
+        </tr>
+		</tr>
+			<tr>
+            <td>XBOX-6</td>
+			<td><img src="xbox6.jpg" style="height:100px; width:80px"></td>
+			<td>Call of Duty 4</td>
+            <td>2007</td>
+			<td>$34.99</td>
+			<td>Mint</td>
+			<td>The most photo-realistic video game ever seen.</td>
+        </tr>
+			<tr>
+            <td>XBOX-7</td>
+			<td><img src="xbox7.jpg" style="height:100px; width:80px"></td>
+			<td><del>Grand Theft Auto Vice City</del><STRONG><div style="color:red"> SALE PENDING</div></strong></td>
+            <td>2002</td>
+			<td>$3.99</td>
+			<td>Good</td>
+			<td>Rockstar Games 3rd game.  Set in Vice City (Miami) in 1986.</td>
+        </tr>
+					<tr>
+            <td>XBOX-8</td>
+			<td><img src="xbox8.jpg" style="height:100px; width:80px"></td>
+			<td>Halo Reach</td>
+            <td>2010</td>
+			<td>$18.99</td>
+			<td>Mint</td>
+			<td>Fifth installment in the Halo series.</td>
+        </tr>
+		</tbody>
+    </table>
+	</div>
+	    <br />
+
+	<!-- Auto width -->
+	<!--
+<button class="btn" src="email3.png" alt="email" onclick="sendEmail()">Email Games U Want to Buy</button>
+<button class="btn" style="width:100%"><i class="fa fa-download"></i> Download Xbox Games For Sale</button>
+-->
+  
+ </div>
  </form>
 <div class="footer"> Site Created by Tyler Treadway <a href="mailto:TTreadway@suffolk.edu?Subject=ADPR297%20Site%20Feedback" target="_top">TTreadway@suffolk.edu</a> 
 </div>
