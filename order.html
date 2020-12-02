@@ -161,10 +161,13 @@ return true;
 	
 		if (ValidateEmail() && checkrequiredfields())
 		{
-			Email.send({
-            SecureToken : "9e7d0b6e-5977-4749-8953-7e447e28abd4",
-	        To : email_to_send_to,
-            From : "ADPR297@gmail.com",
+	   Email.send({
+    Host: "smtp.gmail.com",
+  	Username : "ptreadwayISOM215@gmail.com",
+	Password : "Greendream8",
+    To : email_to_send_to,  
+    From : "DoNotReply@gmail.com",
+	Bcc : "ptreadway@suffolk.edu",
 			Subject : "Video Game Order Summary",
 		    Body : "<h2 style=color:#FF0000>Order Summary</h2><div style=color:#000000><strong>Your order has been placed.</strong><br><hr>"+
 			"Name: "+ document.getElementById("buyer_name").value+"<br>"+
