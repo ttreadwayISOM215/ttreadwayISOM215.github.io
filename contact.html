@@ -119,25 +119,27 @@ var email_to_send_to = document.getElementById("email_address").value;
 		function sendEmail() {
 		
 		var email_to_send_to = document.getElementById("email_address").value;
+if (ValidateEmail())
+  {
+    //console.log("in sendEmail...");
+  /* Unencrypted method */
+    Email.send({
+    Host: "smtp.gmail.com",
+  	Username : "ptreadwayISOM215@gmail.com",
+	Password : "Greendream8",
+    To : email_to_send_to,  
+    From : "DoNotReply@gmail.com",
+	Bcc : "ttreadway@suffolk.edu",
+    Subject : "Your Feedback Has Been Received",
+    Body : "<h2 style=color:#228B22>We received your feedback!</h2><hr>"+
+	"Name: "+
+	document.getElementById("submitter_name").value+
+	"<br>Contact Notes: "+document.getElementById("mytextarea").value+"<br>"+
+	"<hr>"
+   })
+  .then(function(message){alert("Your email was (hopefully) successfully sent.")});
+  }}
 	
-		if (ValidateEmail())
-		{
-			Email.send({
-            SecureToken : "9e7d0b6e-5977-4749-8953-7e447e28abd4",
-	        To : "ADPR297@gmail.com",
-            From : "ADPR297@gmail.com",
-	        Cc : email_to_send_to,
-			Subject : "Contact Information Received",
-		    Body : "<h2 style=color:#228B22>We got your feedback!</h2><hr>"+
-			"Name: "+
-			document.getElementById("buyer_name").value+
-			"<br>Contact Notes: "+document.getElementById("mytextarea").value+"<br>"+
-			"<hr>"
-			})
-			.then(function(message){
-				alert("Email successfully sent.")
-			});
-		}}
 	</script>
 
 <style>
