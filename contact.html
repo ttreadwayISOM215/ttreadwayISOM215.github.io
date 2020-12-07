@@ -89,20 +89,10 @@ label{
  text-align: right;
  }
 </style>
-  <title>Place Game Order</title>
+  <title>Contact Us</title>
   	<script src="https://smtpjs.com/v3/smtp.js">
         </script>
 <script type="text/javascript">
-function CheckPromoCode()
-{
-var promo_code = document.getElementById("promo").value;
-promo_code = promo_code.trim();
-if (promo_code.toUpperCase() == "10NOW")
-{
-return (true)
-}
-return (false)
-}
 
 function ValidateEmail() 
 {
@@ -115,6 +105,7 @@ var email_to_send_to = document.getElementById("email_address").value;
     return (false)
 }
 </script>	
+
 <script type="text/javascript">
 		function sendEmail() {
 		
@@ -123,6 +114,7 @@ var email_to_send_to = document.getElementById("email_address").value;
 		if (ValidateEmail())
 		{
 			Email.send({
+			Host: "smtp.gmail.com",
          	Username : "ptreadwayISOM215@gmail.com",
 	        Password : "Greendream8",
 	        To : email_to_send_to,
