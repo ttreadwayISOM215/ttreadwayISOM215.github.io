@@ -137,9 +137,10 @@ if (ValidateEmail())
 	"<br>Contact Notes: "+document.getElementById("mytextarea").value+"<br>"+
 	"<hr>"
    })
-  .then(function(message){alert("Your email was (hopefully) successfully sent.")});
-  }}
-	
+			.then(function(message){
+				alert("Email successfully sent.")
+			});
+		}}
 	</script>
 
 <style>
